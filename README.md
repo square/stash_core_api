@@ -1,5 +1,8 @@
 # stash_core_api
 
+[![Build Status](https://travis-ci.org/square/stash_core_api.svg?branch=master)](https://travis-ci.org/square/stash_core_api)
+
+
 * [Homepage](https://rubygems.org/gems/stash_core_api)
 * [Documentation](http://rubydoc.info/gems/stash_core_api/frames)
 * [Email](mailto:arp at squareup.com)
