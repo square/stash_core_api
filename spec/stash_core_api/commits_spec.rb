@@ -59,4 +59,24 @@ RSpec.describe StashCoreAPI::Client do
       end
     end
   end
+
+  describe '#commit_changes' do
+    it 'should hit the approprate stash api with the given options' do
+      endpoint = "/commits/083f66ba3c6/changes?limit=1"
+      expect(client).to receive(:perform_get).with(endpoint)
+      client.commit_changes('083f66ba3c6', limit: 1)
+    end
+
+    it 'should raise an error when the commit is not valid' do
+      endpoint = "/#{base_path(client)}/commits/083f66ba3c6/changes"
+      stub_get(client, endpoint).to_return(
+        status: 404,
+        body: fixture('commit_changes_bad_sha.json'),
+        headers: { 'Content-Type' => 'application/json' }
+      )
+      expect { client.commit_changes('083f66ba3c6') }.to raise_error(
+        StashCoreAPI::Error::NotFound, 'Commit "083f66ba3c6" does not exist in this repository'
+      )
+    end
+  end
 end
