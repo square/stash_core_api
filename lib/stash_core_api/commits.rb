@@ -30,5 +30,15 @@ module StashCoreAPI
       end
       perform_get(endpoint)
     end
+
+    # @see https://docs.atlassian.com/DAC/rest/stash/3.9.2/stash-rest.html#idp1729008
+    #
+    # @param limit [Integer] the maximum number of commits to return
+    #   Stash defaults to 25
+    def commit_changes(commit_id, limit: nil)
+      endpoint = "/commits/#{commit_id}/changes"
+      endpoint = "#{endpoint}?limit=#{limit}" if limit
+      perform_get(endpoint)
+    end
   end
 end
