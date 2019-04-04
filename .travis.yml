@@ -1,5 +1,9 @@
 language: ruby
+before_install:
+  - gem install bundler
 rvm:
-  - 2.1
-  - 2.2
-before_install: gem update bundler
+  - 2.4
+  - 2.5
+  - 2.6
+matrix:
+  fast_finish: true
