@@ -1,6 +1,19 @@
 Change Log
 ==========
 
+Version 1.1.7 *(2019-04-04)*
+----------------------------
+
+* Bump gem dependencies
+* Move development dependencies from gemspec to Gemfile
+* Add bundler/gem_tasks
+* Add rubocop + rubocop auto-correct
+
+Version 1.1.6 *(2019-04-04)*
+----------------------------
+
+* Add support for `commit/changes` and `compare/changes` endpoints
+
 Version 0.1.5 *(2018-01-11)*
 ----------------------------
 
