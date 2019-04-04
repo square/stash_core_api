@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'rspec'
 require 'stash_core_api'
@@ -20,7 +20,7 @@ def base_path(client)
 end
 
 def fixture_path
-  File.expand_path('../fixtures', __FILE__)
+  File.expand_path('fixtures', __dir__)
 end
 
 def fixture(file)

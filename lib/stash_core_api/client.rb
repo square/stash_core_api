@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'stash_core_api/api'
 require 'stash_core_api/utils'
 

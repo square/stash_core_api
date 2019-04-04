@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe StashCoreAPI::Request do
@@ -19,7 +21,7 @@ RSpec.describe StashCoreAPI::Request do
       stub_get(client, endpoint).to_return(
         body: fixture('unauthorized_error.json'),
         status: 401,
-        headers: { 'Content-Type' => 'application/json' }
+        headers: { 'Content-Type' => 'application/json' },
       )
       expect { request.get }.to raise_error(StashCoreAPI::Error::Unauthorized)
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'http'
 require 'json'
 require 'stash_core_api/error'
@@ -14,8 +16,8 @@ module StashCoreAPI
 
     def get
       response = HTTP
-        .basic_auth(user: @client.user, pass: @client.pass)
-        .get(req_url(@endpoint))
+                 .basic_auth(user: @client.user, pass: @client.pass)
+                 .get(req_url(@endpoint))
       process(response)
     end
 
@@ -26,13 +28,14 @@ module StashCoreAPI
       body = response.parse
 
       error = error(code, body)
-      fail(error) if error
+      raise(error) if error
+
       body
     end
 
     def error(code, body)
       klass = StashCoreAPI::Error::ERRORS[code]
-      klass.new(body) if klass
+      klass&.new(body)
     end
 
     def req_url(endpoint)

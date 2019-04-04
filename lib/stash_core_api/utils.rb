@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'stash_core_api/request'
 
 module StashCoreAPI
@@ -11,7 +13,7 @@ module StashCoreAPI
 
     def sanitized_path(path)
       # strip out any leading '/' which will break the Stash API
-      path.sub(/^\/*/, '')
+      path.sub(%r{^/*}, '')
     end
   end
 end

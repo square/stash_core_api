@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'stash_core_api/utils'
 
 module StashCoreAPI
@@ -18,7 +20,7 @@ module StashCoreAPI
     # @param withCounts [Boolean] optionally include the total number of
     #   commits and total number of unique authors
     def commits(path: nil, since: nil, until_: nil, limit: nil,
-      with_counts: nil)
+                with_counts: nil)
       endpoint = '/commits'
       if path || since || until_ || limit || with_counts
         endpoint = "#{endpoint}?"

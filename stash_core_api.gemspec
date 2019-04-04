@@ -1,6 +1,6 @@
-# -*- encoding: utf-8 -*-
+# frozen_string_literal: true
 
-require File.expand_path('../lib/stash_core_api/version', __FILE__)
+require File.expand_path('lib/stash_core_api/version', __dir__)
 
 Gem::Specification.new do |gem|
   gem.name          = 'stash_core_api'
@@ -16,8 +16,6 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
-
-  gem.required_ruby_version = '>= 2.0'
 
   gem.add_dependency 'http', '~> 2.2'
 end

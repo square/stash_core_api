@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'stash_core_api/commits'
 require 'stash_core_api/pull_requests'
 require 'stash_core_api/compare'
