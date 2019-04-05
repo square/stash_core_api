@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module StashCoreAPI
   # Base class for all errors emanating from Stash.
   class Error < StandardError
@@ -32,8 +34,8 @@ module StashCoreAPI
       404 => StashCoreAPI::Error::NotFound,
       405 => StashCoreAPI::Error::MethodNotAllowed,
       409 => StashCoreAPI::Error::Conflict,
-      415 => StashCoreAPI::Error::UnsupportedMediaType
-    }
+      415 => StashCoreAPI::Error::UnsupportedMediaType,
+    }.freeze
 
     # Initializes a new Error object
     #

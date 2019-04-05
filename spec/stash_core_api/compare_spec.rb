@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe StashCoreAPI::Client do
@@ -14,9 +16,9 @@ RSpec.describe StashCoreAPI::Client do
   describe '#compare' do
     describe '#changes' do
       it 'should hit the approprate stash api with the given options' do
-        endpoint = "/compare/changes?from=a&to=b&fromRepo=c&limit=1"
+        endpoint = '/compare/changes?from=a&to=b&fromRepo=c&limit=1'
         expect(client).to receive(:perform_get).with(endpoint)
-        changes = client.compare_changes('a', 'b', from_repo: 'c', limit: 1)
+        client.compare_changes('a', 'b', from_repo: 'c', limit: 1)
       end
 
       it 'should raise an error when the range is not valid' do
@@ -24,13 +26,12 @@ RSpec.describe StashCoreAPI::Client do
         stub_get(client, endpoint).to_return(
           status: 404,
           body: fixture('compare_changes_bad_range.json'),
-          headers: { 'Content-Type' => 'application/json' }
+          headers: { 'Content-Type' => 'application/json' },
         )
         expect { client.compare_changes('c', 'd') }.to raise_error(
-          StashCoreAPI::Error::NotFound, 'Object "c" does not exist in this repository'
+          StashCoreAPI::Error::NotFound, 'Object "c" does not exist in this repository',
         )
       end
     end
   end
 end
-
