@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.1.8 *(2019-11-15)*
+----------------------------
+
+* Relax http.rb dependency requirement.
+
 Version 1.1.7 *(2019-04-04)*
 ----------------------------
 
